@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>API RICK Y MORTY</title>
+    <link rel="stylesheet" href="apiRickMorty.css" type="text/css" />
+</head>
+
+<body>
+    <div class="container">
+
+        <header class="header">
+            <h1>RICK AND MORTY INFO</h1>
+            <img src="RickMorty.png" width="50px" />
+        </header>
+
+        <aside class="left">
+            <ul>
+                <li><a class="active" href="#principal">Principal</a></li>
+
+            </ul>
+
+        </aside>
+
+        <section class="content">
+            <h2>Acerca de la página</h2>
+            <p>El objetivo es proveer informacion acerca de Rick y Morty.</p>
+
+            <hr><br>
+            <h2>Personajes</h2>
+
+            <table>
+                <tr>
+                    
+                    <img id="Imagen" src="https://rickandmortyapi.com/api/character/avatar/156.jpeg" />
+                    <img id="Imagen" src="https://rickandmortyapi.com/api/character/avatar/116.jpeg" />
+                    <img id="Imagen" src="https://rickandmortyapi.com/api/character/avatar/16.jpeg" />
+                    <span>
+                    <h2>PERSONAJE 1</h2>
+                    <div id="Personaje"></div>
+                    <h2>PERSONAJE 2</h2>
+                    <div id="Personaje2"></div>
+                    <h2>PERSONAJE 3</h2>
+                    <div id="Personaje3"></div>
+                    </span>
+                </tr>
+                <tr>
+                    <button onclick="getPersonaje()">Obtener Información del Personaje</button>
+                    <br>
+                    <br>
+                    <button onclick="getPersonaje2()">Obtener Información del Personaje2</button>
+                    <br>
+                    <br>
+                    <button onclick="getPersonaje3()">Obtener Información del Personaje3</button>
+                </tr>
+                <tr>
+            </table>
+
+        </section>
+
+        <footer class="footer"> Mateo Ismael Idrovo C; <a class="mail" href="#mailto"> mateovcay23@gmail.com </a>; <a
+                class="tel" href="#tel">
+                +593 096 329 0754 </a>; © Todos los derechos reservados
+        </footer>
+
+    </div>
+
+    <script>
+        var url = "https://rickandmortyapi.com/api/character/156";
+        var url2 = "https://rickandmortyapi.com/api/character/116";
+        var url3 = "https://rickandmortyapi.com/api/character/16";
+        function getPersonaje() {
+            var Per = document.getElementById("Personaje");
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    Per.innerHTML = `                
+                <p>Nombre: ${data.name}</p>
+                <p>ID: ${data.id}</p>
+                <p>Especie: ${data.species}</p>
+                <p>Genero: ${data.gender}</p>
+                                
+                `;
+                    console.log(data);
+                }).catch(error => {
+                    console.log(error);
+                    alert('Ha ocurrido un error!');
+                });
+        }
+        function getPersonaje2() {
+            var Per2 = document.getElementById("Personaje2");
+
+            fetch(url2)
+                .then(response => response.json())
+                .then(data => {
+                    Per2.innerHTML = `                
+                <p>Nombre: ${data.name}</p>
+                <p>ID: ${data.id}</p>
+                <p>Especie: ${data.species}</p>
+                <p>Genero: ${data.gender}</p>
+                                
+                `;
+                    console.log(data);
+                }).catch(error => {
+                    console.log(error);
+                    alert('Ha ocurrido un error!');
+                });
+        }
+        function getPersonaje3() {
+            var Per3 = document.getElementById("Personaje3");
+
+            fetch(url3)
+                .then(response => response.json())
+                .then(data => {
+                    Per3.innerHTML = `                
+                <p>Nombre: ${data.name}</p>
+                <p>ID: ${data.id}</p>
+                <p>Especie: ${data.species}</p>
+                <p>Genero: ${data.gender}</p>
+                                
+                `;
+                    console.log(data);
+                }).catch(error => {
+                    console.log(error);
+                    alert('Ha ocurrido un error!');
+                });
+        }
+    </script>
+
+</body>
+
+</html>
